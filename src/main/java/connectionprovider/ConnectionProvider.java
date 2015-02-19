@@ -36,9 +36,12 @@ public class ConnectionProvider {
 			Statement stmt = connection.createStatement();
 			//stmt.executeUpdate("INSERT INTO GOODS(THING) VALUES('My cool Item');");
 			ResultSet rs = stmt.executeQuery("SELECT title FROM SONGS");
+			//ResultSet rsa = stmt.executeQuery("SELECT artist FROM SONGS");
+			//ResultSet rsid = stmt.executeQuery("SELECT id FROM SONGS");
 			while (rs.next()) {
 				System.out.println("title: " + rs.getString("title"));
 			}
+			System.out.println("hi");
 		} catch (URISyntaxException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {

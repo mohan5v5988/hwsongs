@@ -6,5 +6,7 @@ util/Constants.class
 services/Services.class
 util/Constants$Pagination.class
 launch/Main.class
+command/SearchSongCommand.class
+command/DeleteSongCommand.class
 command/GetSongCommand.class
 command/CreateSongCommand.class

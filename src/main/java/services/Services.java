@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -17,8 +18,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import model.Song;
 import command.CreateSongCommand;
+import command.DeleteSongCommand;
 import command.GetSongCommand;
 import command.ListSongsCommand;
+import command.SearchSongCommand;
 import command.UpdateSongCommand;
 import util.Constants;
 
@@ -59,6 +62,11 @@ public class Services {
 			e.printStackTrace();
 		}
 		return Response.status(200).entity(songString).build();
+	}
+	
+	public static void main(String[] args) {
+		Services s = new Services();
+		s.getSong(1);
 	}
 
 	// Add a song
@@ -107,5 +115,30 @@ public class Services {
 		return Response.status(200).build();
 	}
 	// Delete a song
-	// Search songs
+		@DELETE
+		@Path("delete/{id}")
+		public Response deleteSongs(@PathParam("id") int id) {
+			DeleteSongCommand delete = new DeleteSongCommand();
+			try {
+				delete.execute(id);
+			} catch (Exception e) {
+				e.printStackTrace();
+				Response.status(500).build();
+			}
+			return Response.status(200).build();
+		}
+		// Search songs
+		@GET
+		@Path("title/{title}")
+		@Produces({ MediaType.APPLICATION_JSON })
+		public Response getSong(@PathParam("title") String title) {
+			SearchSongCommand command = new SearchSongCommand();
+			String songString = null;
+			try {
+				songString = mapper.writeValueAsString(command.execute(title));
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			return Response.status(200).entity(songString).build();
+		}
 }

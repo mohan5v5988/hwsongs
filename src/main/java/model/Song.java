@@ -19,6 +19,9 @@ public class Song {
 	public void setId(int id) {
 		this.id = id;
 	}
+	public String toString() {
+		return "id : "+ id+" tit : "+title+" ar :"+artist;
+	}
 	String title;
 	String artist;
 	int id;
