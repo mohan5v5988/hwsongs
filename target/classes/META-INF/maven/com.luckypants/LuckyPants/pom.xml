@@ -116,11 +116,7 @@
 								<artifactItem>
 									<groupId>com.github.jsimone</groupId>
 									<artifactId>webapp-runner</artifactId>
-<<<<<<< HEAD
-									<version>7.0.57.2</version>
-=======
 									<version>7.0.40.0</version>
->>>>>>> 6eaf0bef825957a570b12058873cd6dfa24b902a
 									<destFileName>webapp-runner.jar</destFileName>
 								</artifactItem>
 							</artifactItems>

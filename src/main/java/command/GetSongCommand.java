@@ -15,7 +15,11 @@ public class GetSongCommand {
 		Song s = new Song();
 		try {
 			Connection connection = ConnectionProvider.getConnection();
+<<<<<<< HEAD
 			//Statement stmt = connection.createStatement();
+=======
+			// Statement stmt = connection.createStatement();
+>>>>>>> 6eaf0bef825957a570b12058873cd6dfa24b902a
 			PreparedStatement stmt = connection
 					.prepareStatement("SELECT * FROM Songs WHERE id = ?");
 			stmt.setInt(1, id);
@@ -32,9 +36,13 @@ public class GetSongCommand {
 		}
 		return s;
 	}
+<<<<<<< HEAD
 	/*public static void main(String[] args) {
 		GetSongCommand c = new GetSongCommand();
 		Song j = c.execute(8);
 		System.out.println(j);
 	}*/
+=======
+
+>>>>>>> 6eaf0bef825957a570b12058873cd6dfa24b902a
 }

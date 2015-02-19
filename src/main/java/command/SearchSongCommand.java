@@ -30,9 +30,12 @@ public class SearchSongCommand {
         }
         return s;
     }
+<<<<<<< HEAD
     public static void main(String[] args) {
     	SearchSongCommand c = new SearchSongCommand();
 		Song j = c.execute("You and I");
 		System.out.println(j);
 	}
+=======
+>>>>>>> 6eaf0bef825957a570b12058873cd6dfa24b902a
 }

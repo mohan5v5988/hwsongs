@@ -63,11 +63,14 @@ public class Services {
 		}
 		return Response.status(200).entity(songString).build();
 	}
+<<<<<<< HEAD
 	
 	public static void main(String[] args) {
 		Services s = new Services();
 		s.getSong(1);
 	}
+=======
+>>>>>>> 6eaf0bef825957a570b12058873cd6dfa24b902a
 
 	// Add a song
 	@POST
@@ -117,10 +120,21 @@ public class Services {
 	// Delete a song
 		@DELETE
 		@Path("delete/{id}")
+<<<<<<< HEAD
 		public Response deleteSongs(@PathParam("id") int id) {
 			DeleteSongCommand delete = new DeleteSongCommand();
 			try {
 				delete.execute(id);
+=======
+		@Produces({ MediaType.APPLICATION_JSON })
+		@Consumes({ MediaType.APPLICATION_JSON })
+		public Response deleteSongs(String payload, @PathParam("id") int id) {
+			DeleteSongCommand delete = new DeleteSongCommand();
+			Song s = new Song();
+			s.setId(id);
+			try {
+				delete.execute(s);
+>>>>>>> 6eaf0bef825957a570b12058873cd6dfa24b902a
 			} catch (Exception e) {
 				e.printStackTrace();
 				Response.status(500).build();
